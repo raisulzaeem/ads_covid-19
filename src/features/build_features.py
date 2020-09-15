@@ -52,6 +52,7 @@ def savgol_filter(df_input,column='confirmed',window=5):
     df_result[str(column+'_filtered')]=result
     return df_result
 
+
 def rolling_reg(df_input,col='confirmed'):
     ''' Rolling Regression to approximate the doubling time'
         Parameters:
@@ -89,7 +90,7 @@ def calc_filtered_data(df_input,filter_on='confirmed'):
     '''
 
     must_contain=set(['state','country',filter_on])
-    assert must_contain.issubset(set(df_input.columns)), ' Erro in calc_filtered_data not all columns in data frame'
+    assert must_contain.issubset(set(df_input.columns)), ' Error in calc_filtered_data not all columns in data frame'
 
     df_output=df_input.copy() # we need a copy here otherwise the filter_on column will be overwritten
 
@@ -143,7 +144,7 @@ if __name__ == '__main__':
     print('the test slope is: '+str(result))
 
     pd_JH_data=pd.read_csv('data/processed/COVID_relational_confirmed.csv',sep=';',parse_dates=[0])
-    pd_JH_data=pd_JH_data.sort_values('date',ascending=True).copy()
+    pd_JH_data=pd_JH_data.sort_values('date',ascending=True).reset_index().copy()
 
     #test_structure=pd_JH_data[((pd_JH_data['country']=='US')|
     #                  (pd_JH_data['country']=='Germany'))]
