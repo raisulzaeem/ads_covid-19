@@ -1,7 +1,6 @@
 ADS_COVID-19
 ==============================
-
-A short description of the project.
+This project analyses the covid-19 data and visualizes in an interactive way.
 
 Project Organization
 ------------
